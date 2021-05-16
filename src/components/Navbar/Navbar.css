@@ -1,0 +1,21 @@
+.root {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   background-color: #27344d;
+
+
+  }
+  .menuButton{
+    margin-Right:5px;
+  }
+  
+
+  .title {
+    flex-Grow: 1;
+    font-Weight:bold;
+    text-align: center;
+  }
+  button{
+    border-radius: 50%;
+  }

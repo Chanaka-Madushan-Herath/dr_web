@@ -1,0 +1,46 @@
+.main{
+  background-color: lightgreen;
+    height:100vh;
+    text-align: center;
+  background-image: url('../Assests/bg1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100%; 
+  background-color: transparent;
+  margin: 0;
+}
+.mainBlock {
+  width: 100%;
+  max-width: 600px;
+  position: absolute;
+     left: 50%;
+     top: 50%;
+    transform: translate(-50%, -50%);
+  border: lightskyblue 2px solid;
+  border-radius: 10px;
+  margin: 10px;
+  padding:10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0,0.4) ;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .Error{
+      padding: 10px;
+      background-color: #feeaea;
+      border: 1px solid #fadadb;
+      margin-bottom: 10px;
+      border-radius: 3px;
+    }
+
+    .Spinner{
+      display: table;
+      margin: 0 auto;
+      height: 10%;
+    }
+    .Spinner > .ImgSpinner {
+      max-width: 30px;
+    }
