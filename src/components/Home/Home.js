@@ -60,7 +60,7 @@ const  Home=()=> {
                         <div>
                         <Route path="/" exact render={Search  }/>
                         <Route path="/Profile" exact render={()=> <Profile />}/>
-                        <Route path="/Bookings" exact render={Bookings}/>
+                        <Route path="/Bookings" exact render={()=><Bookings/>}/>
                         </div>
                     </BrowserRouter>
                 }

@@ -1,0 +1,41 @@
+.bookings{
+    width: 90vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding:10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0,0.2) ;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-x:auto;
+}
+table{
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+td{ text-align: left;
+    height: 50px;
+    font-size: 17px;
+    vertical-align: top;
+    border: solid 2px black;
+    padding: 8px;}
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+th {
+    font-size: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 2px black;
+}
