@@ -5,14 +5,14 @@ import 'firebase/app'
 
 
 const config  = {
-    apiKey: "AIzaSyBlFmGrIcCgYHtwNYNiGalK6Q3d6NWy5TI",
-    authDomain: "e-doc-78839.firebaseapp.com",
-    databaseURL: "https://e-doc-78839-default-rtdb.firebaseio.com",
-    projectId: "e-doc-78839",
-    storageBucket: "e-doc-78839.appspot.com",
-    messagingSenderId: "545092091425",
-    appId: "1:545092091425:web:b0392bc92e76e677946d60",
-    measurementId: "G-T6GVN9BWCS"
+    apiKey: "AIzaSyDabzW_-vlymaOTqx_npOiHKZWY88Lgmkw",
+    authDomain: "e-dr-6637d.firebaseapp.com",
+    databaseURL: "https://e-dr-6637d-default-rtdb.firebaseio.com",
+    projectId: "e-dr-6637d",
+    storageBucket: "e-dr-6637d.appspot.com",
+    messagingSenderId: "754784507400",
+    appId: "1:754784507400:web:76e91aee4ea88d13c563bd",
+    measurementId: "G-HLREL2JLGQ"
   };
 const fire = firebase.initializeApp(config);
 export default fire;

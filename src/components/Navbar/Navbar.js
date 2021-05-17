@@ -16,19 +16,9 @@ const logout = () => {
   fire.auth().signOut();
 }
 
-export default function Navbar() {
-
-
-  const [url, setUrl] = useState("");
+export default function Navbar(props) {
 
   const  currentUser=fire.auth().currentUser
-
-  fire.storage().ref("images/").child(currentUser.uid).getDownloadURL().then(url => setUrl(url)).catch((error) => {
-    setUrl(null)
-  });
-
-
-
   return (
     <div>
     <AppBar position="static">
@@ -38,10 +28,11 @@ export default function Navbar() {
           E-DOC
         </Typography>
         <Tooltip title="Profile">
-        {url == null ?
-        <Link to ="/Profile"><Image src={profile }  height="50px"  width ="50px"alt="profile" roundedCircle /></Link>:
-        <Link to ="/Profile"><Image src={url }  height="50px"  width ="50px"alt="profile" roundedCircle /></Link>
-        }</Tooltip>
+          {props.link == null ?
+              <Link to ="/Profile"> <Image src={profile }  height="50px"  width ="50px"alt="profile" roundedCircle /></Link>
+              :
+              <Link to ="/Profile"><Image src={props.link} height="50px"  width ="50px"alt="profile" roundedCircle /></Link>
+          }</Tooltip>
 
         <Tooltip title="Home">
         <Link to ="/"><Button variant="secondary" >Home</Button></Link>

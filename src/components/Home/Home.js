@@ -21,7 +21,26 @@ const  Home=()=> {
         },10000);
     },[]);
 
+    const [url, setUrl] = useState("");
+
+    const [user, setuser] = useState({
+        Name: '',
+        Email: '',
+        Address: '',
+        Tp: ''
+    });
     const currentUser = fire.auth().currentUser;
+
+    fire.storage().ref("images/").child(currentUser.uid).getDownloadURL().then(url => setUrl(url)).catch((error) => {
+        setUrl(null)
+    });
+    const docRef = fire.firestore().collection("users").doc(currentUser.uid).get()
+    docRef.then((snapshot)=>{
+        setuser(snapshot.data())
+    });
+
+    console.log(url)
+    console.log(user.Name)
 
         return(
             <div className="home">
@@ -32,10 +51,10 @@ const  Home=()=> {
                     </div>
                     :
                     <BrowserRouter>
-                        <Navbar/>
-                        <Message name={currentUser.displayName}/>
+                        <Navbar link={url} />
+                        <Message name={user.Name}/>
                         <Route path="/" exact render={Search  }/>
-                        <Route path="/Profile" exact render={Profile}/>
+                        <Route path="/Profile" exact render={()=> <Profile user={user} link={url} />}/>
                         <Route path="/Bookings" exact render={Bookings}/>
 
                     </BrowserRouter>
