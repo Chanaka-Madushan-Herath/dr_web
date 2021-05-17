@@ -3,9 +3,8 @@ import './Main.css';
 import fire from '../config/Fire';
 import Login from './Forms/Login';
 import Register from './Forms/Register';
-import Spinner from '../Assests/loader.gif';
 import Home from './Home/Home';
-import FadeLoader from "react-spinners/FadeLoader";
+import Loader from "./Loader/Loader";
 
 export default class Main extends Component {
     state = {
@@ -37,7 +36,7 @@ export default class Main extends Component {
         if (this.state.user === 1){
             return (
               <div>
-                    <FadeLoader className="ImgSpinner"color={'#36D7B7'} size={50} />
+                   <Loader/>
                 </div>
             );
         }

@@ -7,7 +7,7 @@ const Message = (props) => {
     useEffect(() => {
         const timeId = setTimeout(() => {
             setShow(false)
-        }, 5000)
+        }, 2000)
 
         return () => {
             clearTimeout(timeId)
