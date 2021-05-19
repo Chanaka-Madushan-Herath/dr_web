@@ -3,6 +3,7 @@ import './Search.css';
 import SearchResults from "../SearchResults/SearchResults";
 import {Link} from "react-router-dom";
 import fire from "../../config/Fire";
+import Loader from "../Loader/Loader";
 
 
 
@@ -11,12 +12,30 @@ const Search =()=> {
     const [specialization,setSpecialization]=useState('');
     const [component,setComponent]=useState(false);
     const [result, setResult] = useState([]);
+    const [option,setOption]=useState([]);
+    const [loading,setloading]= useState(false);
 
     const  specializationHandleChange =e =>{
         setSpecialization(e.target.value.toLowerCase())
     }
-    const search=e=>{
-        e.preventDefault();
+
+    const fetchSpecializations =()=>{
+        fire.firestore().collection("doctors").orderBy('Specialization').get()
+            .then(response => {
+                const options = [];
+                response.forEach(document => {
+                    const option = {
+                        Specialization: document.data().Specialization
+                    };
+                    options.push(option);
+                });
+                setOption(options);
+                console.log(options)
+            })
+    }
+
+    const search=e=> {
+
         fire.firestore().collection("doctors").orderBy('Specialization')
             .startAt(specialization)
             .endAt(specialization + '\uf8ff')
@@ -30,36 +49,53 @@ const Search =()=> {
                 Results.push(Result);
             });
             setResult(Results)
-            console.log(Results);
         })
         setComponent(true);
+        e.preventDefault();
     }
+
+    useEffect(()=>{
+        fetchSpecializations();
+        setloading(true);
+        setTimeout(()=>{
+            setloading(false);
+        },2000);
+    },[]);
 
     return(
         <div >
-            {component ?
+            {loading?
+                <Loader load={loading}/>
+                :
+
+            <div>{component ?
                 <div>
                     <SearchResults  Results={result}/>
                 </div>
                 :
                 <div className="search">
                     <form >
-                        <input type="text"
-                               className="regField"
-                               placeholder="Specialization"
-                               value={specialization}
-                               onChange={specializationHandleChange}
-                               name="specialization"
-                        />
+
+                        <label>
+                            Pick your doctor Specialization:
+                            <select value={specialization} onChange={specializationHandleChange} >
+                                {option.map((item =>
+                                    <option value={item.Specialization}>{item.Specialization}</option>
+
+                                ))}
+                            </select>
+                        </label>
                         <Link to="/SearchResults"><input className="submitBtn" type="submit" onClick={search} value="Search" />
                         </Link>
                     </form>
                 </div>
-                }
+
+            }
             }
 
         </div>
-
+            }
+        </div>
     );
 }
 
