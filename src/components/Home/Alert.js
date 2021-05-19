@@ -22,7 +22,7 @@ const Message = (props) => {
     return (
 
     <div aria-live="polite" aria-atomic="true" style={{position: 'relative', minHeight: '200px',}}>
-        <div style={{position: 'absolute', top: 20, right: 50, left: 50,}}>
+        <div style={{position: 'absolute', top:10, right:20,}}>
                     <Alert variant="filled" severity="success">Hi {props.name}!!</Alert>
         </div>
     </div>

@@ -48,7 +48,6 @@ const Profile =()=> {
         setUser({...user, [e.target.name]: e.target.value})
     }
     const update = e =>{
-        e.preventDefault();
         const ref=fire.firestore().collection('users')
         currentUser.updateProfile({
             displayName: user.Name,

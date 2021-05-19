@@ -1,0 +1,52 @@
+.search{
+    width: 100%;
+    max-width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding:10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0,0.4) ;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.regField {
+
+    width: 100%;
+    background-color: #f7f7f7;
+    color: #000;
+    border: 1px solid rgb(5, 5, 5);
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin: 10px;
+}
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;;
+}
+
+.submitBtn {
+    width: 100%;
+    background: #425f9c;
+    border: 0;
+    color: #fff;
+    padding: 15px;
+    margin: 10px 0 0 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.submitBtn:focus{
+    outline: none;
+}

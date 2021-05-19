@@ -2,12 +2,13 @@ import React, { useEffect, useState} from 'react';
 import Navbar from '../Navbar/Navbar';
 import './Home.css';
 import Search from '../Search/Search';
-import { BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
 import Bookings from '../Bookings/Bookings';
 import Profile from '../Profile/Profile';
 import Message from "./Alert";
 import fire from '../../config/Fire';
 import Loader from "../Loader/Loader";
+import {Button} from "react-bootstrap";
 
 
 
@@ -58,7 +59,7 @@ const  Home=()=> {
                         <Navbar link={url} />
                         <Message name={user.Name}/>
                         <div>
-                        <Route path="/" exact render={Search  }/>
+                        <Route path="/" exact render={()=><Search/>  }/>
                         <Route path="/Profile" exact render={()=> <Profile />}/>
                         <Route path="/Bookings" exact render={()=><Bookings/>}/>
                         </div>

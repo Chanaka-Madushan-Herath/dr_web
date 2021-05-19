@@ -29,9 +29,7 @@ const Register =()=> {
 
             });
             currentUser.updateProfile({
-                displayName: allValues.displayName,
-                address: allValues.address,
-                tp: allValues.tp
+                displayName: allValues.displayName
             }) .catch((error) => {
 
                 setAllValues({...allValues, fireErrors: error.message})
