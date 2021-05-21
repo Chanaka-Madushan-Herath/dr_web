@@ -67,7 +67,7 @@ const Register =()=> {
 
 
         return (
-            <>
+            <div className="container">
 
                 {errorNotification}
                 <form >
@@ -114,7 +114,7 @@ const Register =()=> {
                     />
                     <input className="submitBtn" type="submit" onClick={register} value="REGISTER" />
                 </form>
-            </>
+            </div>
         );
     }
 export default Register;
