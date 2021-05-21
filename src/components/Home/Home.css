@@ -1,12 +1,4 @@
 .home{
-    background-color: lightgreen;
     height:100vh;
     width:100%;
-  background-image: url('../../Assests/bg2.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  width: 100%; 
-  background-color: transparent;
-  margin: 0;
 }

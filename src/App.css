@@ -1,5 +1,13 @@
 
 body {
-  background: #425F9C;
   color: #3c4043;
+  height:100vh;
+  text-align: center;
+  background-image: url('./Assests/bg2.jpg');
+  background-position: center;background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  width: 100%;
+  background-color: transparent;
+  margin: 0;
 }

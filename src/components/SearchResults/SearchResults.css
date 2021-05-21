@@ -1,0 +1,41 @@
+.searchResult{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 85vw;
+    transform: translate(-50%, -50%);
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding:20px;
+    background-color: rgba(0, 0, 0,0.2) ;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-x:auto;
+}
+.doctorName{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.hospital{
+    font-size: 15px;
+}
+.item{
+    float: left;
+    text-align: left;
+   width: 80vw;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.item:hover{
+    background-color: lightgreen;
+    transform: scale(1.03);
+}
+ .details{
+    flex-grow: 5;
+}

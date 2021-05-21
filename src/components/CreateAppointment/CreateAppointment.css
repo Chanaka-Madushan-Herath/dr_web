@@ -1,0 +1,23 @@
+.createAppointment{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 85vw;
+    transform: translate(-50%, -50%);
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    padding:20px;
+    background-color: rgba(255, 252, 252, 0.6);
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-x:auto;
+}
+.createAppointment img{
+    border: black 2px solid;
+    background-color: #96d3ec;
+}
+.createAppointment h1{
+    color: red;
+    font-weight: bold;
+}

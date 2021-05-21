@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './SearchResults.css';
-import fire from "../../config/Fire";
 import Loader from "../Loader/Loader";
-import  {Button} from 'react-bootstrap'
+import {Button, Image} from 'react-bootstrap'
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {selectItem} from "../../Action/BookAction";
+import doctorimg from '../../Assests/doctor.png'
 
 const SearchResults =(props)=> {
-    const currentUser = fire.auth().currentUser;
     const [loading, setloading] = useState(false);
-    const [results, setResults] = useState([]);
+    const [id, setId] = useState('');
 
 
     useEffect(() => {
@@ -18,7 +21,7 @@ const SearchResults =(props)=> {
     }, []);
 
 
-    const cancel =()=>{
+    const cancel = () => {
         window.location.reload();
     }
 
@@ -28,16 +31,24 @@ const SearchResults =(props)=> {
             {loading ?
                 <Loader load={loading}/>
                 :
-                <div className="bookings">
+                <div className="searchResult">
+                    <Link to={"/Create Appointment"}>
+
                     {props.Results.map((item =>
-                            <tr>
-                                <td key={item.id}>{item.Name}</td>
-                                <td key={item.id}>{item.Hospital}</td>
-                            </tr>
+
+                       <button className="item"  onClick={() => props.selectItem(item)}>
+                           <Image src={doctorimg}height="50px" width="50px"/>
+                           <div clasename="details">
+                               <div className="doctorName">Dr.{item.Name}</div>
+                               <div className="hospital"> {item.Hospital}</div>
+                       </div>
+                           <Button  variant="danger"> Chanel </Button>
+                       </button>
+
                     ))}
-                    <div>
-                    <Button onClick={cancel} >Cancel </Button>
-                    </div>
+                    </Link>
+                        <Button className="btn"variant="danger"  onClick={cancel}>Cancel </Button>
+
                 </div>
 
             }
@@ -45,4 +56,11 @@ const SearchResults =(props)=> {
     );
 }
 
-export default SearchResults ;
+
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {selectItem:selectItem},dispatch)
+}
+
+export default connect(null,matchDispatchToProps)(SearchResults);

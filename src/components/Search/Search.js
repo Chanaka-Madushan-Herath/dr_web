@@ -19,7 +19,7 @@ const Search =()=> {
         setSpecialization(e.target.value.toLowerCase())
     }
 
-    const fetchSpecializations =()=>{
+    const fetchSpecializations =async ()=>{
         fire.firestore().collection("doctors").orderBy('Specialization').get()
             .then(response => {
                 const options = [];
@@ -79,6 +79,7 @@ const Search =()=> {
                         <label>
                             Pick your doctor Specialization:
                             <select value={specialization} onChange={specializationHandleChange} >
+                                <option value="">Show all doctors</option>
                                 {option.map((item =>
                                     <option value={item.Specialization}>{item.Specialization}</option>
 

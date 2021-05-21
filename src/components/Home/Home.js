@@ -8,7 +8,7 @@ import Profile from '../Profile/Profile';
 import Message from "./Alert";
 import fire from '../../config/Fire';
 import Loader from "../Loader/Loader";
-import {Button} from "react-bootstrap";
+import CreateAppointment from "../CreateAppointment/CreateAppointment";
 
 
 
@@ -62,6 +62,7 @@ const  Home=()=> {
                         <Route path="/" exact render={()=><Search/>  }/>
                         <Route path="/Profile" exact render={()=> <Profile />}/>
                         <Route path="/Bookings" exact render={()=><Bookings/>}/>
+                        <Route path="/Create Appointment" exact render={()=> <CreateAppointment />}/>
                         </div>
                     </BrowserRouter>
                 }

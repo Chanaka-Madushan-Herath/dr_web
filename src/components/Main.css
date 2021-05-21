@@ -1,15 +1,4 @@
-.main{
-  background-color: lightgreen;
-    height:100vh;
-    text-align: center;
-  background-image: url('../Assests/bg1.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  width: 100%; 
-  background-color: transparent;
-  margin: 0;
-}
+
 .mainBlock {
   width: 100%;
   max-width: 600px;
