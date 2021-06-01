@@ -5,6 +5,9 @@ import './CreateAppointment.css';
 import fire from "../../config/Fire";
 import Loader from "../Loader/Loader";
 import {Button} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import {bindActionCreators} from "redux";
+import {BookDoctor, selectItem} from "../../Action/BookAction";
 
 
 const CreateAppointment =(props)=> {
@@ -49,13 +52,18 @@ const CreateAppointment =(props)=> {
                 <h1 >Dr.{props.selectedItem.Name}</h1>
                 <h2>({props.selectedItem.Specialization})</h2>
                 <h2>{props.selectedItem.Hospital}</h2>
+
                 {session.map((item =>
-                        <tr>
+                    <Link to={"/Book"}>
+                        <button className="item"  onClick={() => props.BookDoctor(item)}>
+
                             <td key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")}</td>
                             <td key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</td>
                             <td><Button variant="danger">Book</Button></td>
-                        </tr>
+
+                    </button> </Link>
                 ))}
+
             </div>
             }
             </div>
@@ -69,4 +77,10 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(CreateAppointment)
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {BookDoctor:BookDoctor},dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(CreateAppointment)

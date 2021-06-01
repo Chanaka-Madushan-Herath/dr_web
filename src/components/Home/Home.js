@@ -9,6 +9,7 @@ import Message from "./Alert";
 import fire from '../../config/Fire';
 import Loader from "../Loader/Loader";
 import CreateAppointment from "../CreateAppointment/CreateAppointment";
+import BookSession from "../BookSession/BookSession";
 
 
 
@@ -59,10 +60,11 @@ const  Home=()=> {
                         <Navbar link={url} />
                         <Message name={user.Name}/>
                         <div>
-                        <Route path="/" exact render={()=><Search/>  }/>
+                        <Route path="/" render={()=><Search/>  }/>
                         <Route path="/Profile" exact render={()=> <Profile />}/>
                         <Route path="/Bookings" exact render={()=><Bookings/>}/>
                         <Route path="/Create Appointment" exact render={()=> <CreateAppointment />}/>
+                        <Route path="/Book" exact render={()=> <BookSession />}/>
                         </div>
                     </BrowserRouter>
                 }
