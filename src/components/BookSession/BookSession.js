@@ -73,8 +73,8 @@ const BookSession =(props)=> {
                             <label>
                                 Appointment for:
                                 <select onChange={detailsHandleChange} >
-                                    <option value="Myself">Myself</option>
                                     <option value="Other">Other</option>
+                                    <option value="Myself">Myself</option>
                                 </select>
                             </label>
                             <div>  <label>Name  </label>
