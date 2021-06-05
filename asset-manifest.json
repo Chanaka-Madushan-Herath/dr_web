@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dr_web/static/css/main.7dd1c5c3.chunk.css",
+    "main.css": "/dr_web/static/css/main.bd9e1d9a.chunk.css",
     "main.js": "/dr_web/static/js/main.db9f256d.chunk.js",
     "main.js.map": "/dr_web/static/js/main.db9f256d.chunk.js.map",
     "runtime-main.js": "/dr_web/static/js/runtime-main.06696beb.js",
@@ -12,7 +12,7 @@
     "static/js/3.52fd4b89.chunk.js.map": "/dr_web/static/js/3.52fd4b89.chunk.js.map",
     "index.html": "/dr_web/index.html",
     "static/css/2.61b4cb56.chunk.css.map": "/dr_web/static/css/2.61b4cb56.chunk.css.map",
-    "static/css/main.7dd1c5c3.chunk.css.map": "/dr_web/static/css/main.7dd1c5c3.chunk.css.map",
+    "static/css/main.bd9e1d9a.chunk.css.map": "/dr_web/static/css/main.bd9e1d9a.chunk.css.map",
     "static/js/2.e37e329a.chunk.js.LICENSE.txt": "/dr_web/static/js/2.e37e329a.chunk.js.LICENSE.txt",
     "static/media/Logo.5190756d.png": "/dr_web/static/media/Logo.5190756d.png",
     "static/media/App.css": "/dr_web/static/media/bg2.31c82646.jpg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.06696beb.js",
     "static/css/2.61b4cb56.chunk.css",
     "static/js/2.e37e329a.chunk.js",
-    "static/css/main.7dd1c5c3.chunk.css",
+    "static/css/main.bd9e1d9a.chunk.css",
     "static/js/main.db9f256d.chunk.js"
   ]
 }
