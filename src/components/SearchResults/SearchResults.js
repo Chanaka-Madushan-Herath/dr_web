@@ -6,7 +6,9 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {selectItem} from "../../Action/BookAction";
-import doctorimg from '../../Assests/doctor.png'
+import doctorimg from '../../Assests/doctor.png';
+import { RiCloseCircleFill } from 'react-icons/fa';
+
 
 const SearchResults =(props)=> {
     const [loading, setloading] = useState(false);
@@ -32,22 +34,23 @@ const SearchResults =(props)=> {
                 <Loader load={loading}/>
                 :
                 <div className="searchResult">
-                    <Link to={"/Create Appointment"}>
+                    <Button className="btn"variant="danger"  onClick={cancel}><RiCloseCircleFill/> </Button>
+                    <Link to={"/dr_web/Create Appointment"}>
 
                     {props.Results.map((item =>
 
-                       <button className="item"  onClick={() => props.selectItem(item)}>
+                       <div className="item"  onClick={() => props.selectItem(item)}>
                            <Image src={doctorimg}height="50px" width="50px"/>
                            <div clasename="details">
                                <div className="doctorName">Dr.{item.Name}</div>
                                <div className="hospital"> {item.Hospital}</div>
                        </div>
                            <Button  variant="danger"> Chanel </Button>
-                       </button>
+                       </div>
 
                     ))}
                     </Link>
-                        <Button className="btn"variant="danger"  onClick={cancel}>Cancel </Button>
+
 
                 </div>
 

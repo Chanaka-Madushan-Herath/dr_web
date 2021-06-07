@@ -27,7 +27,6 @@ const CreateAppointment =(props)=> {
                 });
 
                 setSessions(Sessions)
-                console.log(Sessions);
             });
     }
     useEffect(()=>{
@@ -54,14 +53,14 @@ const CreateAppointment =(props)=> {
                 <h2>{props.selectedItem.Hospital}</h2>
 
                 {session.map((item =>
-                    <Link to={"/Book"}>
-                        <button className="item"  onClick={() => props.BookDoctor(item)}>
+                    <Link to={"/dr_web/Book"}>
+                        <div className="item"  onClick={() => props.BookDoctor(item)}>
 
-                            <td key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")}</td>
-                            <td key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</td>
-                            <td><Button variant="danger">Book</Button></td>
+                            <div key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")}</div>
+                            <div key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</div>
+                            <div><Button variant="danger">Book</Button></div>
 
-                    </button> </Link>
+                    </div> </Link>
                 ))}
 
             </div>

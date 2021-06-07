@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import './Bookings.css';
 import fire from "../../config/Fire";
 import Loader from "../Loader/Loader";
-import {Table} from "react-bootstrap";
 
 const Bookings =()=> {
     const currentUser = fire.auth().currentUser;
@@ -23,7 +22,6 @@ const Bookings =()=> {
                 });
 
                 setBooking(Bookings)
-        console.log(Bookings);
         });
     }
 
@@ -50,9 +48,8 @@ const Bookings =()=> {
                         <tbody>
                         {booking.map((item =>
                                 <tr>
-                                    <td key={item.id}>{item.id}</td>
-                                    <td key={item.id}>{item.DoctorName}</td>
-                                    <td key={item.id}>{item.Date.toDate().toString()}</td>
+                                    <td key={item.id}>{item.Reservation_ID}</td>
+
                                 </tr>
                         ))}
                         </tbody>

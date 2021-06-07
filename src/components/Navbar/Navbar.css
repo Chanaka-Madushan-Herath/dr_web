@@ -1,18 +1,11 @@
-.root {
+.Navbar {
    display: flex;
    flex-direction: row;
-   gap: 10px;
-   background-color: #27344d;
-
-
+   align-content: space-between; 
+    justify-content: space-between;
   }
-  .menuButton{
-    margin-Right:5px;
-  }
-  
-
-  .title {
-    flex-Grow: 1;
+  .tittle{
+    flex-grow: 15;
     font-Weight:bold;
     text-align: center;
   }

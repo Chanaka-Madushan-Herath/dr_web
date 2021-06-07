@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import doctorimg from '../../Assests/doctor.png';
 import Loader from "../Loader/Loader";
 import fire from "../../config/Fire";
+import './BookSession.css';
+import {Link} from "react-router-dom";
 
 const BookSession =(props)=> {
     const currentUser = fire.auth().currentUser;
-    const [loading,setLoading]= useState(false);
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({
         Name: '',
         Email: '',
@@ -15,97 +17,121 @@ const BookSession =(props)=> {
     });
 
 
-    const fetchUser=async ()=>{
+    const fetchUser = async () => {
         const docRef = fire.firestore().collection("users").doc(currentUser.uid).get()
-        docRef.then((snapshot)=>{
+        docRef.then((snapshot) => {
             setUser(snapshot.data())
         });
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false);
-        },2000);
-    },[]);
+        }, 2000);
+    }, []);
 
 
-    if(!props.selectedItem){
+    if (!props.selectedItem) {
         return (<h2>Select a doctor ....</h2>);
     }
 
-    const  detailsHandleChange=(event)=> {
-        {
-            event.target.value== "Myself"?
-                fetchUser()
+    const detailsHandleChange = (event) => {
 
-                :
-                setUser({
-                    Name: '',
-                    Email: '',
-                    Address: '',
-                    Tp: ''
-                })
+        event.target.value == "Myself" ?
+            fetchUser()
 
-        }
+            :
+            setUser({
+                Name: '',
+                Email: '',
+                Address: '',
+                Tp: ''
+            })
+
+
     }
     const handleChange = e => {
 
         setUser({...user, [e.target.name]: e.target.value})
     }
+
+    const book = async (e) => {
+        const ref = await fire.firestore().collection('Reservations').doc()
+        ref.set({
+            Name: user.Name,
+            Email: user.Email,
+            Address: user.Address,
+            Tp: user.Tp,
+            Doctor: props.selectedItem.Name,
+            Specialization: props.selectedItem.Specialization,
+            Hospital: props.selectedItem.Hospital,
+            Time: props.BookDoctor.Time
+
+        });
+        const docRef = fire.firestore().collection("users").doc(currentUser.uid).collection("bookings").doc()
+        docRef.set({
+            Reservation_ID:ref.id
+        })
+
+
+    }
+
     return (
         <div>
-            {loading?
+            {loading ?
                 <Loader load={loading}/>
                 :
-                <div className={"BookSession"} >
+                <div className={"BookSession"}>
                     <div>
-                        <img  src={doctorimg} height="200px" width="200px"/>
-                        <h1 >Dr.{props.selectedItem.Name}</h1>
+                        <img src={doctorimg} height="200px" width="200px"/>
+                        <h1>Dr.{props.selectedItem.Name}</h1>
                         <h2>({props.selectedItem.Specialization})</h2>
                         <h2>{props.selectedItem.Hospital}</h2>
                         <h2>{new Date(props.BookDoctor.Time.seconds * 1000).toLocaleDateString("en-US")} {new Date(props.BookDoctor.Time.seconds * 1000).toLocaleTimeString("en-US")}</h2>
 
                     </div>
                     <div>
-                        <form >
+                        <form>
 
                             <label>
                                 Appointment for:
-                                <select onChange={detailsHandleChange} >
+                                <select onChange={detailsHandleChange}>
                                     <option value="Other">Other</option>
                                     <option value="Myself">Myself</option>
                                 </select>
                             </label>
-                            <div>  <label>Name  </label>
+                            <div><label>Name </label>
                                 <input type="text"
                                        className="regField"
                                        placeholder="Your Name"
                                        value={user.Name}
                                        onChange={handleChange}
                                        name="Name"/></div>
-                            <div>  <label>Email</label>
+                            <div><label>Email</label>
                                 <input type="text"
                                        className="regField"
                                        placeholder="Email"
                                        value={user.Email}
                                        onChange={handleChange}
                                        name="Email"/></div>
-                            <div>  <label>Address </label>
+                            <div><label>Address </label>
                                 <input type="text"
                                        className="regField"
                                        placeholder="Your Address"
                                        value={user.Address}
                                        onChange={handleChange}
                                        name="Address"/></div>
-                            <div> <label> Phone Number </label>
-                            <input type="text"
-                                   className="regField"
-                                   placeholder="Your Phone Number"
-                                   value={user.Tp}
-                                   onChange={handleChange}
-                                   name="Tp"
-                            /></div>
+                            <div><label> Phone Number </label>
+                                <input type="text"
+                                       className="regField"
+                                       placeholder="Your Phone Number"
+                                       value={user.Tp}
+                                       onChange={handleChange}
+                                       name="Tp"
+                                /></div>
+                            <Link to={"/dr_web"}><input className="submitBtn" type="submit" onClick={book}
+                                                  value="BOOK"/></Link>
                         </form>
                     </div>
                 </div>

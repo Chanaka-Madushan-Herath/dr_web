@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import Navbar from '../Navbar/Navbar';
+import Navibar from '../Navbar/Navbar';
 import './Home.css';
 import Search from '../Search/Search';
 import {BrowserRouter, Link, Route} from 'react-router-dom';
@@ -57,14 +57,15 @@ const  Home=()=> {
                     <Loader load={loading}/>
                     :
                     <BrowserRouter>
-                        <Navbar link={url} />
+                        <div><Navibar link={url} />
                         <Message name={user.Name}/>
-                        <div>
-                        <Route path="/" exact render={()=><Search/>  }/>
-                        <Route path="/Profile" exact render={()=> <Profile />}/>
-                        <Route path="/Bookings" exact render={()=><Bookings/>}/>
-                        <Route path="/Create Appointment" exact render={()=> <CreateAppointment />}/>
-                        <Route path="/Book" exact render={()=> <BookSession />}/>
+                        </div>
+                        <div className="wrapper">
+                        <Route path="/dr_web" exact render={()=><Search/>}/>
+                        <Route path="/dr_web/Profile" exact render={()=> <Profile/>}/>
+                        <Route path="/dr_web/Bookings" exact render={()=><Bookings/>}/>
+                        <Route path="/dr_web/Create Appointment" exact render={()=> <CreateAppointment/>}/>
+                        <Route path="/dr_web/Book" exact render={()=> <BookSession/>}/>
                         </div>
                     </BrowserRouter>
                 }

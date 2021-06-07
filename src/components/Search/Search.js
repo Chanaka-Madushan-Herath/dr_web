@@ -30,7 +30,6 @@ const Search =()=> {
                     options.push(option);
                 });
                 setOption(options);
-                console.log(options)
             })
     }
 
@@ -86,13 +85,13 @@ const Search =()=> {
                                 ))}
                             </select>
                         </label>
-                        <Link to="/SearchResults"><input className="submitBtn" type="submit" onClick={search} value="Search" />
+                        <Link to="/dr_web/SearchResults"><input className="submitBtn" type="submit" onClick={search} value="Search" />
                         </Link>
                     </form>
                 </div>
 
             }
-            }
+            
 
         </div>
             }

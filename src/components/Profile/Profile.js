@@ -108,7 +108,7 @@ const Profile =()=> {
                                onChange={handleChange}
                                name="Tp"
                         />
-                        <Link to="/"><input className="submitBtn" type="submit" onClick={update} value="Save Changes" /></Link>
+                        <Link to="/dr_web"><input className="submitBtn" type="submit" onClick={update} value="Save Changes" /></Link>
                     </form>
                 </div>
             }

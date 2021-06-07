@@ -1,7 +1,7 @@
 .search{
     width: 100%;
     max-width: 600px;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 57%;
     transform: translate(-50%, -50%);
