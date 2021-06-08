@@ -1,16 +1,12 @@
 .bookings{
-    width: 90vw;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    width: 95vw;
+    position: relative;
     border: lightskyblue 2px solid;
     border-radius: 10px;
-    margin: 10px;
+    margin:auto;
     padding:10px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.6);
-
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow-x:auto;
 }

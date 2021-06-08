@@ -7,10 +7,11 @@ const Bookings =()=> {
     const currentUser = fire.auth().currentUser;
     const [loading,setloading]= useState(false);
     const [booking, setBooking] = useState([]);
+    const [bookingDetails,setBookingDetails]=useState([])
 
 
     const fetchBookings=async ()=>{
-        const docRef = fire.firestore().collection("users").doc(currentUser.uid).collection("bookings").get()
+        fire.firestore().collection("users").doc(currentUser.uid).collection("bookings").get()
             .then(response => {
                 const Bookings = [];
                 response.forEach(document => {
@@ -18,11 +19,22 @@ const Bookings =()=> {
                         id: document.id,
                         ...document.data()
                     };
-                    Bookings.push(Booking);
+
+                    fire.firestore().collection("Reservations").doc(Booking.Reservation_ID).get()
+                        .then(response => {
+                            const detail={
+                                id: response.id,
+                                ...response.data()
+                            };
+                            Bookings.push(detail);
+                        })
                 });
 
                 setBooking(Bookings)
         });
+
+
+
     }
 
     useEffect(()=>{
@@ -43,13 +55,16 @@ const Bookings =()=> {
                         <tr>
                             <th>Reference Number</th>
                             <th>Doctor's Name</th>
-                            <th>Date And Time</th>
+                            <th>Date</th>
+                            <th>Time</th>
                         </tr>
                         <tbody>
                         {booking.map((item =>
                                 <tr>
-                                    <td key={item.id}>{item.Reservation_ID}</td>
-
+                                    <td >{item.id}</td>
+                                    <td >{item.Doctor}</td>
+                                    <td >{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")} </td>
+                                    <td > {new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</td>
                                 </tr>
                         ))}
                         </tbody>
