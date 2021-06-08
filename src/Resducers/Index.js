@@ -2,10 +2,12 @@
 import {combineReducers} from 'redux';
 import SelectedItemReducer from './Reducer-SelectedItem'
 import BookDoctorReducer from './Reducer-BookDoctor'
+import viewBookingReducer from './Reducer-ViewBookings'
 
 const rootReducer=combineReducers({
     selectedItem:SelectedItemReducer,
-    BookDoctor:BookDoctorReducer
+    BookDoctor:BookDoctorReducer,
+    viewBooking:viewBookingReducer
 
 })
 

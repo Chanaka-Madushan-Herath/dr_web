@@ -10,6 +10,7 @@ import fire from '../../config/Fire';
 import Loader from "../Loader/Loader";
 import CreateAppointment from "../CreateAppointment/CreateAppointment";
 import BookSession from "../BookSession/BookSession";
+import ViewDetails from "../ViewDetails/ViewDetails";
 
 
 
@@ -66,7 +67,7 @@ const  Home=()=> {
                         <Route path="/dr_web/Bookings" exact render={()=><Bookings/>}/>
                         <Route path="/dr_web/Create Appointment" exact render={()=> <CreateAppointment/>}/>
                         <Route path="/dr_web/Book" exact render={()=> <BookSession/>}/>
-
+                        <Route path="/dr-web/View details" exact render={()=> <ViewDetails/>}/>
                     </BrowserRouter>
                 }
                 </div>

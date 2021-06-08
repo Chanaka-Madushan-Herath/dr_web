@@ -1,0 +1,40 @@
+.BookSession{
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    width: 85vw;
+    max-width: 700px;
+    margin: auto;
+    padding:10px;
+    position: relative;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.BookSession img{
+    border: black 2px solid;
+    background-color: #96d3ec;
+}
+.docName{
+    color: red;
+    font-weight: bold;
+}
+.yoursDetail{
+    border: lightskyblue 2px solid;
+    border-radius: 10px;
+    width: 75vw;
+    max-width: 600px;
+    margin: auto;
+    padding:10px;
+    position: relative;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.yoursDetail h1{
+    color: navy;
+    font-weight: bold;
+}
+.yoursDetail h4,h3{
+    text-align: left;
+}
+.close{
+    float: right;
+}

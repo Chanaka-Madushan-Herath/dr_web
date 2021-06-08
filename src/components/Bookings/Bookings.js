@@ -2,8 +2,12 @@ import React, {useEffect, useState} from 'react';
 import './Bookings.css';
 import fire from "../../config/Fire";
 import Loader from "../Loader/Loader";
+import {connect} from "react-redux";
+import {viewBooking} from "../../Action/ViewBookings";
+import {Link} from "react-router-dom";
+import {bindActionCreators} from "redux";
 
-const Bookings =()=> {
+const Bookings =(props)=> {
     const currentUser = fire.auth().currentUser;
     const [loading,setloading]= useState(false);
     const [booking, setBooking] = useState([]);
@@ -60,13 +64,15 @@ const Bookings =()=> {
                         </tr>
                         <tbody>
                         {booking.map((item =>
-                                <tr>
-                                    <td >{item.id}</td>
-                                    <td >{item.Doctor}</td>
-                                    <td >{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")} </td>
-                                    <td > {new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</td>
+
+                                <tr onClick={() => props.viewBooking(item)}>
+                                    <td  ><Link to={"/dr-web/View details"}>{item.id}</Link></td>
+                                    <td ><Link to={"/dr-web/View details"}>{item.Doctor}</Link></td>
+                                    <td ><Link to={"/dr-web/View details"}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")} </Link></td>
+                                    <td > <Link to={"/dr-web/View details"}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</Link></td>
                                 </tr>
                         ))}
+
                         </tbody>
                     </table>
                 </div>
@@ -76,4 +82,9 @@ const Bookings =()=> {
     );
 }
 
-export default Bookings ;
+function matchDispatchToProps(dispatch){
+    return bindActionCreators(
+        {viewBooking:viewBooking},dispatch)
+}
+
+export default connect(null, matchDispatchToProps)(Bookings);
