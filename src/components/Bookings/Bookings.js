@@ -66,10 +66,10 @@ const Bookings =(props)=> {
                         {booking.map((item =>
 
                                 <tr onClick={() => props.viewBooking(item)}>
-                                    <td  ><Link to={"/dr-web/View details"}>{item.id}</Link></td>
-                                    <td ><Link to={"/dr-web/View details"}>{item.Doctor}</Link></td>
-                                    <td ><Link to={"/dr-web/View details"}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")} </Link></td>
-                                    <td > <Link to={"/dr-web/View details"}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</Link></td>
+                                    <td  ><Link to={"/dr-web/View details"}  style={{ textDecoration: 'none' }}>{item.id}</Link></td>
+                                    <td ><Link to={"/dr-web/View details"}  style={{ textDecoration: 'none' }}>{item.Doctor}</Link></td>
+                                    <td ><Link to={"/dr-web/View details"}  style={{ textDecoration: 'none' }}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")} </Link></td>
+                                    <td > <Link to={"/dr-web/View details"}  style={{ textDecoration: 'none' }}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</Link></td>
                                 </tr>
                         ))}
 
