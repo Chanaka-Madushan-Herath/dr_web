@@ -1,17 +1,27 @@
 .createAppointment{
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    position: relative;
     width: 85vw;
-    transform: translate(-50%, -50%);
+    max-width: 600px;
     border: lightskyblue 2px solid;
-    margin: 10px;
+    margin: auto;
     padding:20px;
     border-radius: 10px;
     background-color: rgba(255, 252, 252, 0.6);
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow-x:auto;
+}
+
+.item{
+    border: lightskyblue 2px solid;
+    margin: 10px;
+    width: 95%;
+    background-color: rgba(255, 252, 252, 0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item div{
+    flex-grow:2;
 }
 .createAppointment img{
     border: black 2px solid;

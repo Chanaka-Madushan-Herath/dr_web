@@ -11,10 +11,10 @@ import {BookDoctor, selectItem} from "../../Action/BookAction";
 
 
 const CreateAppointment =(props)=> {
-    const [loading,setLoading]= useState(false);
+    const [loading, setLoading] = useState(false);
     const [session, setSessions] = useState([]);
 
-    const fetchSessions=async ()=>{
+    const fetchSessions = async () => {
         const docRef = fire.firestore().collection("doctors").doc(props.selectedItem.id).collection("Times").get()
             .then(response => {
                 const Sessions = [];
@@ -29,45 +29,51 @@ const CreateAppointment =(props)=> {
                 setSessions(Sessions)
             });
     }
-    useEffect(()=>{
+    useEffect(() => {
         fetchSessions();
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false);
-        },2000);
-    },[]);
+        }, 2000);
+    }, []);
 
 
-    if(!props.selectedItem){
-            return (<h2>Select a doctor ....</h2>);
-        }
-        return (
-            <div>
-            {loading?
-                    <Loader load={loading}/>
-                    :
-            <div className="createAppointment">
-               <img  src={doctorimg} height="200px" width="200px"/>
-                <h1 >Dr.{props.selectedItem.Name}</h1>
-                <h2>({props.selectedItem.Specialization})</h2>
-                <h2>{props.selectedItem.Hospital}</h2>
-
-                {session.map((item =>
-                    <Link to={"/dr_web/Book"}>
-                        <div className="item"  onClick={() => props.BookDoctor(item)}>
-
-                            <div key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")}</div>
-                            <div key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</div>
-                            <div><Button variant="danger">Book</Button></div>
-
-                    </div> </Link>
-                ))}
-
-            </div>
-            }
-            </div>
-        )
+    if (!props.selectedItem) {
+        return (<h2>Select a doctor ....</h2>);
     }
+    return (
+        <div>
+            {loading ?
+                <Loader load={loading}/>
+                :
+                <div className={"createAppointment"}>
+                    <img src={doctorimg} height="200px" width="200px"/>
+                    <h1>Dr.{props.selectedItem.Name}</h1>
+                    <h2>({props.selectedItem.Specialization})</h2>
+                    <h2>{props.selectedItem.Hospital}</h2>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    {session.map((item =>
+                            <Link to={"/dr_web/Book"}>
+                                <div className="item" onClick={() => props.BookDoctor(item)}>
+
+                                    <div
+                                        key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleDateString("en-US")}</div>
+                                    <div
+                                        key={item.id}>{new Date(item.Time.seconds * 1000).toLocaleTimeString("en-US")}</div>
+                                    <Button variant="danger">Book</Button>
+
+                                </div>
+                            </Link>
+
+                    ))}
+
+                </div>
+            }
+        </div>
+    )
+}
 
 
 function mapStateToProps(state){

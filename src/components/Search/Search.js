@@ -72,8 +72,7 @@ const Search =()=> {
                     <SearchResults  Results={result}/>
                 </div>
                 :
-                <div className="search">
-                    <form >
+                    <form className="search" >
 
                         <label>
                             Pick your doctor Specialization:
@@ -88,7 +87,6 @@ const Search =()=> {
                         <Link to="/dr_web/SearchResults"><input className="submitBtn" type="submit" onClick={search} value="Search" />
                         </Link>
                     </form>
-                </div>
 
             }
             

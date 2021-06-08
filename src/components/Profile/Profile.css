@@ -1,16 +1,13 @@
 .profile{
-    width: 100%;
+    width: 85vw;
     max-width: 600px;
-    position: absolute;
-    left: 50%;
-    top: 57%;
-    transform: translate(-50%, -50%);
+    position: relative;
     border: lightskyblue 2px solid;
     border-radius: 10px;
-    margin: 10px;
+    margin: auto;
     padding:10px;
     text-align: center;
-    background-color: rgba(0, 0, 0,0.4) ;
+    background-color: rgba(255, 255, 255, 0.6);
     color: whitesmoke;
     font-weight: bold;
     font-size: 20px;

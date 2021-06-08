@@ -60,13 +60,13 @@ const  Home=()=> {
                         <div><Navibar link={url} />
                         <Message name={user.Name}/>
                         </div>
-                        <div className="wrapper">
+
                         <Route path="/dr_web" exact render={()=><Search/>}/>
                         <Route path="/dr_web/Profile" exact render={()=> <Profile/>}/>
                         <Route path="/dr_web/Bookings" exact render={()=><Bookings/>}/>
                         <Route path="/dr_web/Create Appointment" exact render={()=> <CreateAppointment/>}/>
                         <Route path="/dr_web/Book" exact render={()=> <BookSession/>}/>
-                        </div>
+
                     </BrowserRouter>
                 }
                 </div>

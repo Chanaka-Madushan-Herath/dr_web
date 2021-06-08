@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {selectItem} from "../../Action/BookAction";
 import doctorimg from '../../Assests/doctor.png';
-import { RiCloseCircleFill } from 'react-icons/fa';
 
 
 const SearchResults =(props)=> {
@@ -34,21 +33,22 @@ const SearchResults =(props)=> {
                 <Loader load={loading}/>
                 :
                 <div className="searchResult">
-                    <Button className="btn"variant="danger"  onClick={cancel}><RiCloseCircleFill/> </Button>
+                    <Button className="close" variant="danger" onClick={cancel}> <span aria-hidden="true">&times;</span></Button>
+
                     <Link to={"/dr_web/Create Appointment"}>
 
-                    {props.Results.map((item =>
+                        {props.Results.map((item =>
 
-                       <div className="item"  onClick={() => props.selectItem(item)}>
-                           <Image src={doctorimg}height="50px" width="50px"/>
-                           <div clasename="details">
-                               <div className="doctorName">Dr.{item.Name}</div>
-                               <div className="hospital"> {item.Hospital}</div>
-                       </div>
-                           <Button  variant="danger"> Chanel </Button>
-                       </div>
+                                <div className="item" onClick={() => props.selectItem(item)}>
+                                    <Image src={doctorimg} height="50px" width="50px"/>
+                                    <div clasename="details">
+                                        <div className="doctorName">Dr.{item.Name}</div>
+                                        <div className="hospital"> {item.Hospital}</div>
+                                    </div>
+                                    <Button variant="danger"> Chanel </Button>
+                                </div>
 
-                    ))}
+                        ))}
                     </Link>
 
 

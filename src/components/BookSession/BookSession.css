@@ -1,9 +1,14 @@
 .BookSession{
     border: lightskyblue 2px solid;
     border-radius: 10px;
-    margin: 10px;
+    width: 85vw;
+    max-width: 700px;
+    margin: auto;
     padding:10px;
-    position: absolute;
+    position: relative;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.6);
+}
+.label{
+    font-weight: bold;
 }

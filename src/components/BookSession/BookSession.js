@@ -33,7 +33,10 @@ const BookSession =(props)=> {
 
 
     if (!props.selectedItem) {
-        return (<h2>Select a doctor ....</h2>);
+        return (
+            <Link to={"/dr_web"}><h2>Select a doctor ....</h2></Link>
+
+        );
     }
 
     const detailsHandleChange = (event) => {
@@ -71,7 +74,7 @@ const BookSession =(props)=> {
         });
         const docRef = fire.firestore().collection("users").doc(currentUser.uid).collection("bookings").doc()
         docRef.set({
-            Reservation_ID:ref.id
+            Reservation_ID: ref.id
         })
 
 
@@ -91,47 +94,47 @@ const BookSession =(props)=> {
                         <h2>{new Date(props.BookDoctor.Time.seconds * 1000).toLocaleDateString("en-US")} {new Date(props.BookDoctor.Time.seconds * 1000).toLocaleTimeString("en-US")}</h2>
 
                     </div>
+                    <br/>
+                    <hr/>
+                    <br/>
                     <div>
                         <form>
 
-                            <label>
+                            <label className={"label"}>
                                 Appointment for:
                                 <select onChange={detailsHandleChange}>
                                     <option value="Other">Other</option>
                                     <option value="Myself">Myself</option>
                                 </select>
                             </label>
-                            <div><label>Name </label>
-                                <input type="text"
-                                       className="regField"
-                                       placeholder="Your Name"
-                                       value={user.Name}
-                                       onChange={handleChange}
-                                       name="Name"/></div>
-                            <div><label>Email</label>
-                                <input type="text"
-                                       className="regField"
-                                       placeholder="Email"
-                                       value={user.Email}
-                                       onChange={handleChange}
-                                       name="Email"/></div>
-                            <div><label>Address </label>
-                                <input type="text"
-                                       className="regField"
-                                       placeholder="Your Address"
-                                       value={user.Address}
-                                       onChange={handleChange}
-                                       name="Address"/></div>
-                            <div><label> Phone Number </label>
-                                <input type="text"
-                                       className="regField"
-                                       placeholder="Your Phone Number"
-                                       value={user.Tp}
-                                       onChange={handleChange}
-                                       name="Tp"
-                                /></div>
+                            <input type="text"
+                                   className="regField"
+                                   placeholder="Your Name"
+                                   value={user.Name}
+                                   onChange={handleChange}
+                                   name="Name"/>
+                            <input type="text"
+                                   className="regField"
+                                   placeholder="Email"
+                                   value={user.Email}
+                                   onChange={handleChange}
+                                   name="Email"/>
+                            <input type="text"
+                                   className="regField"
+                                   placeholder="Your Address"
+                                   value={user.Address}
+                                   onChange={handleChange}
+                                   name="Address"/>
+
+                            <input type="text"
+                                   className="regField"
+                                   placeholder="Your Phone Number"
+                                   value={user.Tp}
+                                   onChange={handleChange}
+                                   name="Tp"
+                            />
                             <Link to={"/dr_web"}><input className="submitBtn" type="submit" onClick={book}
-                                                  value="BOOK"/></Link>
+                                                        value="BOOK"/></Link>
                         </form>
                     </div>
                 </div>
