@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dr_web/static/css/main.7ca46b82.chunk.css",
-    "main.js": "/dr_web/static/js/main.010ee101.chunk.js",
-    "main.js.map": "/dr_web/static/js/main.010ee101.chunk.js.map",
+    "main.js": "/dr_web/static/js/main.b257dc38.chunk.js",
+    "main.js.map": "/dr_web/static/js/main.b257dc38.chunk.js.map",
     "runtime-main.js": "/dr_web/static/js/runtime-main.aff1d5b3.js",
     "runtime-main.js.map": "/dr_web/static/js/runtime-main.aff1d5b3.js.map",
     "static/css/2.61b4cb56.chunk.css": "/dr_web/static/css/2.61b4cb56.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.61b4cb56.chunk.css",
     "static/js/2.f477b888.chunk.js",
     "static/css/main.7ca46b82.chunk.css",
-    "static/js/main.010ee101.chunk.js"
+    "static/js/main.b257dc38.chunk.js"
   ]
 }
