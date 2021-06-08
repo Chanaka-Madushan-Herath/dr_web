@@ -4,7 +4,8 @@ import doctorimg from '../../Assests/doctor.png';
 import Loader from "../Loader/Loader";
 import './ViewDetails.css';
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
+import {Button, Nav} from "react-bootstrap";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const ViewDetails =(props)=> {
     const [loading, setLoading] = useState(false);
@@ -30,8 +31,11 @@ const ViewDetails =(props)=> {
                 <Loader load={loading}/>
                 :
                 <div className={"BookSession"}>
-                    <div>
-                       <Link to={"/dr_web/Bookings"}> <Button className="close" variant="danger" > <span aria-hidden="true">&times;</span></Button></Link>
+
+                    <Link to={"/dr_web/Bookings"}>   <Tooltip title="Close"><Button className="close" variant="danger" > <span aria-hidden="true">&times;</span></Button></Tooltip></Link>
+
+                        <h2 className={"description"}>Doctor's Information:</h2><br/><br/>
+                    <div className={"Detail"}>
                         <img src={doctorimg} height="200px" width="200px"/>
                         <h1 className={"docName"}>Dr.{props.viewBooking.Doctor}</h1>
                         <h2>({props.viewBooking.Specialization})</h2>
@@ -42,8 +46,9 @@ const ViewDetails =(props)=> {
                     <br/>
                     <hr/>
                     <br/>
-                    <div className={"yoursDetail"}>
-                        <h1>{props.viewBooking.Name}</h1><br/>
+                    <h2 className={"description"}>Patient's Information:</h2><br/><br/>
+                    <div className={"Detail"}>
+                        <h1 className={"Name"}>{props.viewBooking.Name}</h1><br/>
                         <h3>{props.viewBooking.Email}</h3><br/>
                         <h3>{props.viewBooking.Tp}</h3><br/>
                         <h4>{props.viewBooking.Address}</h4><br/>
@@ -58,7 +63,7 @@ const ViewDetails =(props)=> {
 
 function mapStateToProps(state) {
     return {
-        viewBooking:state.viewBooking
+        viewBooking: state.viewBooking
     }
 }
 

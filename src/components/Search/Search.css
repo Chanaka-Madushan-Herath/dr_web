@@ -1,13 +1,11 @@
 .search{
     width: 90%;
     max-width: 600px;
-    position: absolute;
-    left: 50%;
-    top: 57%;
-    transform: translate(-50%, -50%);
+    position: relative;
     border: lightskyblue 2px solid;
     border-radius: 10px;
-    margin: 10px;
+    margin: auto;
+    margin-top: 35vh;
     padding:10px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.6);

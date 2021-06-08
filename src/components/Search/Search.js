@@ -9,23 +9,23 @@ import Loader from "../Loader/Loader";
 
 const Search =()=> {
 
-    const [specialization,setSpecialization]=useState('');
+    const [doctor,setDoctor]=useState('');
     const [component,setComponent]=useState(false);
     const [result, setResult] = useState([]);
     const [option,setOption]=useState([]);
     const [loading,setloading]= useState(false);
 
-    const  specializationHandleChange =e =>{
-        setSpecialization(e.target.value.toLowerCase())
+    const  doctorHandleChange =e =>{
+        setDoctor(e.target.value)
     }
 
-    const fetchSpecializations =async ()=>{
-        fire.firestore().collection("doctors").orderBy('Specialization').get()
+    const fetchDoctors =async ()=>{
+        fire.firestore().collection("doctors").orderBy('Name').get()
             .then(response => {
                 const options = [];
                 response.forEach(document => {
                     const option = {
-                        Specialization: document.data().Specialization
+                        Name: document.data().Name
                     };
                     options.push(option);
                 });
@@ -35,9 +35,9 @@ const Search =()=> {
 
     const search=e=> {
 
-        fire.firestore().collection("doctors").orderBy('Specialization')
-            .startAt(specialization)
-            .endAt(specialization + '\uf8ff')
+        fire.firestore().collection("doctors").orderBy('Name')
+            .startAt(doctor)
+            .endAt(doctor + '\uf8ff')
             .get().then(response => {
             const Results = [];
             response.forEach(document => {
@@ -54,7 +54,7 @@ const Search =()=> {
     }
 
     useEffect(()=>{
-        fetchSpecializations();
+        fetchDoctors();
         setloading(true);
         setTimeout(()=>{
             setloading(false);
@@ -75,11 +75,11 @@ const Search =()=> {
                     <form className="search" >
 
                         <label>
-                            Pick your doctor Specialization:
-                            <select value={specialization} onChange={specializationHandleChange} >
+                            Pick your doctor :
+                            <select value={doctor} onChange={doctorHandleChange} >
                                 <option value="">Show all doctors</option>
                                 {option.map((item =>
-                                    <option value={item.Specialization}>{item.Specialization}</option>
+                                    <option value={item.Name}>{item.Name}</option>
 
                                 ))}
                             </select>

@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {selectItem} from "../../Action/BookAction";
 import doctorimg from '../../Assests/doctor.png';
+import Tooltip from "@material-ui/core/Tooltip";
 
 
 const SearchResults =(props)=> {
@@ -33,8 +34,9 @@ const SearchResults =(props)=> {
                 <Loader load={loading}/>
                 :
                 <div className="searchResult">
+                    <Tooltip title="Close">
                     <Button className="close" variant="danger" onClick={cancel}> <span aria-hidden="true">&times;</span></Button>
-
+                    </Tooltip>
                     <Link to={"/dr_web/Create Appointment"}>
 
                         {props.Results.map((item =>
